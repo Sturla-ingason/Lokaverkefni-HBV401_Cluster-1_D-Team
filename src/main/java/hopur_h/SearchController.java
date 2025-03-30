@@ -1,35 +1,51 @@
 package hopur_h;
+import java.util.*;
 
 public class SearchController {
+
+    TourDB tourDB = new TourDB();
+    List<Tour> tours = new ArrayList<>();
+
+    // uppfærum tours listan okkar ef við uppfærum einhverja tours
+    public void updateTours(){
+        tours = tourDB.getAllTours();
+    }
     
-    public Tour[] stringSearch(String querry){
-        Tour[] tour = new Tour[10];
+    /*
+     * Searches all the tours in tha data base and checks if they match the query string
+     * @param query = the string to search for
+     * @return a list of all the matching tours
+     */
+    public List<Tour> stringSearch(String query){
+        List<Tour> matchingTours = new ArrayList<>();
 
-        // Tekur inn leitar orð
+        for(Tour tour : tours){
+            if(tour.getTourName().toLowerCase().contains(query.toLowerCase())){
+                matchingTours.add(tour);
+            }
+        }
 
-        // Kallar á tour db til að finna Tour í databaseinu sem passa við strengin
-
-        // Skilar fylki af öllum tours sem innihalda strengin í nafninu
-
-        return tour;
+        return matchingTours;
     }
 
 
-    public Tour[] priceSearch(double min, double max){
+    /*
+     * Searches all the tours in the data base 
+     */
+    public List<Tour> priceSearch(double min, double max){
 
-        Tour[] tour = new Tour[10];
+        List<Tour> matchingTours = new ArrayList<>();
 
-        // Tekur inn tvær tölur min og max
+        for(Tour tour: tours){
+            if(tour.getPrice() < max && tour.getPrice() > min){
+                matchingTours.add(tour);
+            }
+        }
 
-        // kallar á aðferð í TourDB til að querrya data baseið til að finna alla þá
-        // Tours sem eru með verð á milli min og max
-
-        //Skilar lista af tours sem uppfylla skilirðinn.
-
-
-        return tour;
+        return matchingTours;
 
     }
+
 
     public Tour[] dateSearch(){
         Tour[] tour = new Tour[10];
@@ -44,16 +60,16 @@ public class SearchController {
     }
 
 
-    public Tour[] regionSearch(String region){
-        Tour[] tour = new Tour[10];
+    public List<Tour> regionSearch(String region){
+        List<Tour> matchingTours = new ArrayList<>();
+    
+        for(Tour tour : tours){
+            if(tour.getRegion().toLowerCase().contains(region.toLowerCase())){
+                matchingTours.add(tour);
+            }
+        }
 
-        // Tekur in eina breytur region
-
-        // kallar á aðferð í TourDB sem querryar data basið eftir því hvaða ferðir eru í regioninnu
-        
-        // Skilar lista af öllum þeim tours sem uppfyllakröfurnar.
-
-        return tour;
+        return matchingTours;
     }
 
 }
