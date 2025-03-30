@@ -3,6 +3,8 @@ package hopur_h;
 public class TourController {
 
     private Tour[] tours = new Tour[20];
+
+    private TourDB tourDB = new TourDB();
     
 
     // method addTour
@@ -11,6 +13,8 @@ public class TourController {
 
     public void addTour(){
 
+        tourDB.addTour();
+
     }
 
 
@@ -18,6 +22,8 @@ public class TourController {
     // a method that takes in new information about a given tour and updates it in the db
 
     public void updateTour(){
+
+        tourDB.updateTour();
 
     }
 
