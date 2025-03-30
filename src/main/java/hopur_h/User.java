@@ -1,5 +1,4 @@
-package hopur_h.objects;
-
+package hopur_h;
 public class User {
     
     private int User_ID;

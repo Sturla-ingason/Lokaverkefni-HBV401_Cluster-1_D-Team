@@ -1,4 +1,4 @@
-package hopur_h.objects;
+package hopur_h;
 
 import java.util.Date;
 
