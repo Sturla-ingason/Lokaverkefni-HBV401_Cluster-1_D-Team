@@ -1,4 +1,4 @@
-package hopur_h;
+package hopur_h.UI;
 
 import java.io.IOException;
 import javafx.fxml.FXML;
