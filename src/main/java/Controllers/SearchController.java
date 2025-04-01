@@ -27,7 +27,7 @@ public class SearchController {
         List<Tour> matchingTours = new ArrayList<>();
 
         for(Tour tour : tours){
-            if(tour.getTourName().toLowerCase().contains(query.toLowerCase())){
+            if(tour.getTourName().toLowerCase().contains(query.toLowerCase()) && query.length() != 0){
                 matchingTours.add(tour);
             }
         }

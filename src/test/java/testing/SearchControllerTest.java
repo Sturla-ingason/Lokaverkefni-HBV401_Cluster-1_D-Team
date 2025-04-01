@@ -49,5 +49,21 @@ public class SearchControllerTest {
 
     }
 
+    @Test
+    public void TestIfNotMatch(){
+
+        List<Tour> resault = search.stringSearch("Poland");
+
+        assertEquals(0, resault.size());
+
+    }
+
+    @Test
+    public void TestIfQuerryEmpty(){
+        List<Tour> resault = search.stringSearch("");
+
+        assertEquals(0, resault.size());
+    }
+
 }
 
