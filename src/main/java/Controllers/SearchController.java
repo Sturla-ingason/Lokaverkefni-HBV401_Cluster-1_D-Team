@@ -1,8 +1,7 @@
 package Controllers;
+
 import Data.TourDB;
-
 import java.util.*;
-
 import Objects.Tour;
 
 public class SearchController {

@@ -1,4 +1,6 @@
-package hopur_h;
+package Controllers;
+import Data.TourDB;
+import Objects.Tour;
 
 public class TourController {
 

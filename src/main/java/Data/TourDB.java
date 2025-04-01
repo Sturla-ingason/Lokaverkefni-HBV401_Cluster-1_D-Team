@@ -1,5 +1,7 @@
-package hopur_h;
+package Data;
+
 import java.util.*;
+import Objects.Tour;
 
 public class TourDB {
 
