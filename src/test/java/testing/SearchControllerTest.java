@@ -19,7 +19,7 @@ public class SearchControllerTest {
     private Tour tourmock;
     private Tour tourmock2;
     private Tour tourmock3;
-    private SearchController search = new SearchController();
+    private SearchController search;
 
     @Before
     public void setUp(){
@@ -31,8 +31,8 @@ public class SearchControllerTest {
         when(tourmock2.getTourName()).thenReturn("two day sight seeing in England");
         when(tourmock3.getTourName()).thenReturn("Museium tour in sweeden");
 
-        List<Tour> tours = Arrays.asList(tourmock, tourmock2, tourmock3);
-        search.setTours(tours);
+        search = new SearchController();
+        search.setTours(Arrays.asList(tourmock,tourmock2,tourmock3));
 
     }
 
