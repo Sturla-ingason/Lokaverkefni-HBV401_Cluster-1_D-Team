@@ -19,4 +19,8 @@ public class TourDB {
 
     }
 
+    public void deleteTour(){
+        
+    }
+
 }

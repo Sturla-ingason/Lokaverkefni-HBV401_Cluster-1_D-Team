@@ -4,8 +4,6 @@ import Objects.Tour;
 
 public class TourController {
 
-    private Tour[] tours = new Tour[20];
-
     private TourDB tourDB = new TourDB();
     
 
@@ -34,6 +32,8 @@ public class TourController {
     // method that takes in a tour id and removes that tour from the database.
 
     public void deleatTou(int Tour_ID){
+
+        tourDB.deleteTour();
 
     }
 

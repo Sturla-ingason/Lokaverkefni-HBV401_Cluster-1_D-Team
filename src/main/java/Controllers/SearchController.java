@@ -6,12 +6,16 @@ import Objects.Tour;
 
 public class SearchController {
 
-    TourDB tourDB = new TourDB();
-    List<Tour> tours = new ArrayList<>();
+    private TourDB tourDB = new TourDB();
+    private List<Tour> tours = new ArrayList<>();
 
     // uppfærum tours listan okkar ef við uppfærum einhverja tours
     public void updateTours(){
         tours = tourDB.getAllTours();
+    }
+
+    public void setTours(List<Tour> tours) {
+        this.tours = tours;
     }
     
     /*
