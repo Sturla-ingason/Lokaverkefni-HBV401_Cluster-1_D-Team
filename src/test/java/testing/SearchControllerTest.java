@@ -27,23 +27,25 @@ public class SearchControllerTest {
         tourmock2 = mock(Tour.class);
         tourmock3 = mock(Tour.class);
 
-        search = mock(SearchController.class);
+        when(tourmock.getTourName()).thenReturn("Day tour in paris");
+        when(tourmock2.getTourName()).thenReturn("two day sight seeing in England");
+        when(tourmock3.getTourName()).thenReturn("Museium tour in sweeden");
 
-        List<Tour> tours = new ArrayList<>();
-        tours.add(tourmock);
-        tours.add(tourmock2);
-        tours.add(tourmock3);
-
+        List<Tour> tours = Arrays.asList(tourmock, tourmock2, tourmock3);
         search.setTours(tours);
+
     }
 
 
     @Test
     public void TestStringSearch(){
 
-        when(List<Tour> resault = search.stringSearch("paris"));
+        List<Tour> resault = search.stringSearch("paris");
 
+        System.out.println(resault);
 
+        assertEquals(1, resault.size());
+        assertTrue(resault.contains(tourmock));
 
     }
 
