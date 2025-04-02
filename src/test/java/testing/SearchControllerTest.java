@@ -63,6 +63,7 @@ public class SearchControllerTest {
         List<Tour> resault = search.stringSearch("");
 
         assertEquals(0, resault.size());
+        
     }
 
 }
