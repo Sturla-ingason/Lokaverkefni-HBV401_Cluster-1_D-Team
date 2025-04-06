@@ -18,7 +18,9 @@ public class TourController {
 
     public void addTour(){
 
-        tourDB.addTour();
+        Tour tour = new Tour(0, 0, null, null, 0, 0, null, 0, null, null, null);
+
+        tourDB.addTour(tour);
 
     }
 
@@ -28,7 +30,10 @@ public class TourController {
 
     public void updateTour(){
 
-        tourDB.updateTour();
+        //TODO take input from UI to make a new tour element with the updates
+        Tour tour = new Tour(0, 0, null, null, 0, 0, null, 0, null, null, null);
+
+        tourDB.updateTour(tour);
 
     }
 
@@ -36,9 +41,12 @@ public class TourController {
     // method deleatTour
     // method that takes in a tour id and removes that tour from the database.
 
-    public void deleatTou(int Tour_ID){
+    public void deleatTour(int Tour_ID){
 
-        tourDB.deleteTour();
+        //TODO take input from UI to know what tour to delete
+        Tour tour = new Tour(Tour_ID, Tour_ID, null, null, Tour_ID, Tour_ID, null, Tour_ID, null, null, null);
+
+        tourDB.deleteTour(tour);
 
     }
 

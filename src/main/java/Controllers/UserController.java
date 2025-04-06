@@ -13,8 +13,8 @@ public class UserController{
         users = new_users;
     }
 
-    public void newUser(){
-        user_data.newUser();
+    public void newUser(int userID, String name, String email, String Password, int adminID, String Bookings){
+        user_data.newUser(userID, name, email, Password, adminID, Bookings);
     }
     
 

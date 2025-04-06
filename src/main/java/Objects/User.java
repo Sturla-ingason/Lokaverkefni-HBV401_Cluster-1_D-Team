@@ -5,8 +5,18 @@ public class User {
     private String Name;
     private String Email;
     private String Password;
-    private boolean Admin;
+    private int Admin;
     private Booking[] Bookings = new Booking[10];
+
+    //TODO make constructer for user
+
+    public User(int User_ID, String Name, String Email, String Password, int Admin){
+        this.User_ID = User_ID;
+        this.Name = Name;
+        this.Email = Email;
+        this.Password = Password;
+        this.Admin = Admin;
+    }
 
     //GETTERS_____________________________________________________________________________________
 
@@ -26,9 +36,17 @@ public class User {
         return User_ID;
     }
 
+    public Booking[] getBookings() {
+        return Bookings;
+    }
+    
+    public int getAdmin() {
+        return Admin;
+    }
+
     //SETTERS____________________________________________________________________________________
 
-    public void setAdmin(boolean admin) {
+    public void setAdmin(int admin) {
         Admin = admin;
     }
 
