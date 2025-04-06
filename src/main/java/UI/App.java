@@ -8,6 +8,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import Controllers.TourController;
+
 public class App extends Application {
 
 
@@ -20,6 +22,9 @@ public class App extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/primary.fxml"));
         Parent root = fxmlLoader.load();
 
+        TourController tourController = new TourController();
+        tourController.init();
+
         Scene scene = new Scene(root);
 
         stage.setScene(scene);
@@ -29,6 +34,7 @@ public class App extends Application {
 
     public static void main(String[] args) {
         launch();
+
     }
 
 

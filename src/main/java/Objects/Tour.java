@@ -8,26 +8,29 @@ public class Tour {
     private int Tour_ID;
     private int Admin_ID;
     private String TourName = null;
-    private Date localDate = new Date();
-    private double Price;
-    private double Duration;
+    private String localDate;
+    private int Price;
+    private int Duration;
     private String Region;
     private int Available_seats;
-    private String[] Catagory = new String[10];
-    private String[] Language = new String[10];
+    private String Catagory;
+    private String Language;
     private String Description;
 
     // CONSTRUCTOR
 
-    public Tour(int Admin_ID, String TourName, double Price, double Duration, String Region, int Available_seats, String[] Catagory, String[] Language){
+    public Tour(int Tour_ID, int Admin_ID, String TourName, String localDate, int Price, int Duration, String Region, int Available_seats, String Catagory, String Language, String Description){
+        this.Tour_ID = Tour_ID;
         this.Admin_ID = Admin_ID;
         this.TourName = TourName;
+        this.localDate = localDate;
         this.Price = Price;
         this.Duration = Duration;
         this.Region = Region;
         this.Available_seats = Available_seats;
         this.Catagory = Catagory;
         this.Language = Language;
+        this.Description = Description;
     }
 
     //GETTERS______________________________________________________________________________________
@@ -36,7 +39,7 @@ public class Tour {
         return Available_seats;
     }
 
-    public String[] getCatagory() {
+    public String getCatagory() {
         return Catagory;
     }
 
@@ -48,15 +51,15 @@ public class Tour {
         return Duration;
     }
 
-    public String[] getLanguage() {
+    public String getLanguage() {
         return Language;
     }
 
-    public Date getLocalDate() {
+    public String getLocalDate() {
         return localDate;
     }
 
-    public double getPrice() {
+    public int getPrice() {
         return Price;
     }
 
@@ -82,7 +85,7 @@ public class Tour {
         Available_seats = available_seats;
     }
 
-    public void setCatagory(String[] catagory) {
+    public void setCatagory(String catagory) {
         Catagory = catagory;
     }
 
@@ -90,19 +93,19 @@ public class Tour {
         Description = description;
     }
 
-    public void setDuration(double duration) {
+    public void setDuration(int duration) {
         Duration = duration;
     }
 
-    public void setLanguage(String[] language) {
+    public void setLanguage(String language) {
         Language = language;
     }
 
-    public void setLocalDate(Date localDate) {
+    public void setLocalDate(String localDate) {
         this.localDate = localDate;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(int price) {
         Price = price;
     }
 

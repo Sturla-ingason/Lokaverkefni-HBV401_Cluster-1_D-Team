@@ -49,4 +49,18 @@ public class TourController {
         this.tours = tours;
     }
 
+
+    /*
+     * Loadar öllum tours úr data baseinnu inn í controllerin þegar að við byrjum.
+     */
+    public void init(){
+        tours = tourDB.getAllTours();
+        
+        for(Tour tour: tours){
+            System.out.println(tour.getTourName());
+        }
+
+    }
+
+
 }
