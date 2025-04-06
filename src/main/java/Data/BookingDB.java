@@ -8,11 +8,11 @@ import java.sql.*;
 
 public class BookingDB {
     
-    public void getBooking(){
+    public void getBooking(int Booking_ID){
 
         try{
 
-            Connection conn = DriverManager.getConnection(null, null, null);
+            Connection conn = DriverManager.getConnection("jdbc:sqlite:LokaverkefniDB.db");
             Statement statement = conn.createStatement();
 
             String query = "select name from tour";
@@ -21,7 +21,7 @@ public class BookingDB {
 
             
         }catch(Exception e){
-
+            e.printStackTrace();
         }
 
 
@@ -29,6 +29,28 @@ public class BookingDB {
 
     public void getAllBookings(){
 
+        try {
+
+            String dbpath = "src/main/java/Data/LokaverkefniDB.db";
+            
+            Connection conn = DriverManager.getConnection("jdbc:sqlite:" + dbpath);
+            System.out.println("Connection successful");
+            
+            Statement statement = conn.createStatement();
+
+            String querry = "SELECT * FROM tour";
+
+            ResultSet result = statement.executeQuery(querry);
+
+            while(result.next()){
+                System.out.println("tourID " + result.getInt("tourID"));
+                System.out.println("Tour Name " + result.getString("tourName"));
+            }
+
+        } catch (SQLException e) {
+            System.out.println("connection failed");
+            e.printStackTrace();
+        }
 
 
     }
@@ -50,5 +72,7 @@ public class BookingDB {
 
 
     }
+
+
     
 }

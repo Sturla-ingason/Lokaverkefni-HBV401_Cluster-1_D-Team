@@ -1,11 +1,16 @@
 package Controllers;
+import java.util.ArrayList;
+
+import java.util.*;
+
 import Data.TourDB;
 import Objects.Tour;
 
 public class TourController {
 
+    List<Tour> tours = new ArrayList<>();
     private TourDB tourDB = new TourDB();
-    
+
 
     // method addTour
     // a method that adds a tour to the data base.
@@ -35,6 +40,13 @@ public class TourController {
 
         tourDB.deleteTour();
 
+    }
+
+    /*
+     * Settar tours ef einhverjar breytringar verða á þeim
+     */
+    public void setTours(List<Tour> tours) {
+        this.tours = tours;
     }
 
 }
