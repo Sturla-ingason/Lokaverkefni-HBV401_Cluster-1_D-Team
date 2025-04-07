@@ -13,15 +13,20 @@ public class ReviewController{
     List<Review> Reviews = new ArrayList<>();
 
     public void addReview(){
-        review_data.newReview();
+        Review review = new Review(0, 0,null, 0, 0);
+
+        review_data.newReview(review);
     }
 
     public void editReview(){
-        review_data.updateReview();
+
+        Review review = new Review(0, 0,null, 0, 0);
+        review_data.updateReview(review);
     }
 
     public void removeReview(){
-        review_data.deletReview();
+        Review review = new Review(0, 0,null, 0, 0);
+        review_data.deletReview(review);
     }
 
 }
