@@ -9,6 +9,10 @@ import java.sql.*;
 
 public class TourDB {
 
+    /*
+     * Establishes a connection with the data base
+     * returns a connection with the database
+     */
     public Connection getConnection(){
 
         try {
@@ -27,6 +31,11 @@ public class TourDB {
 
     }
 
+
+    /*
+     * method that allows us to get all the tours in the data base
+     * returns all tours in the data base.
+     */
     public List<Tour> getAllTours(){
         List<Tour> allTours = new ArrayList<>();
 
@@ -66,30 +75,31 @@ public class TourDB {
     
 
     //Takes in Tour object
-    public void addTour(){
+    /*
+     * method that allows us to add a tour to the data base
+     * takes in a tour object
+     */
+    public void addTour(Tour tour){
 
         try {
 
-            Tour tour = new Tour(0, 0, null, null, 0, 0, null, 0, null, null, null);
-
-            String dblocation = "src/main/java/Data/LokaverkefniDB.db";
-            Connection conn = DriverManager.getConnection("jdbc:sqlite:" + dblocation);
-            System.out.println("Connection Successful");
+            Connection conn = getConnection();
 
             Statement statement = conn.createStatement();
 
             String insert_querry = "INSERT INTO tour(tourID, admin_ID, tourName, Date, price, duration, region, available_seats, category, language, description)";
-            String value_querry = "VALUES(" + tour.getTour_ID() +","+ 
-            tour.getAdmin_ID() +","+ 
-            tour.getTourName() +","+ 
-            tour.getLocalDate() +","+ 
-            tour.getPrice() +","+ 
-            tour.getDuration() +","+ 
-            tour.getRegion() +","+ 
-            tour.getAvailable_seats() +","+ 
-            tour.getCatagory() +","+ 
-            tour.getLanguage() +","+ 
-            tour.getDescription() +")" ;
+            String value_querry = "VALUES(" + 
+                tour.getTour_ID() +","+ 
+                tour.getAdmin_ID() +","+ 
+                tour.getTourName() +","+ 
+                tour.getLocalDate() +","+ 
+                tour.getPrice() +","+ 
+                tour.getDuration() +","+ 
+                tour.getRegion() +","+ 
+                tour.getAvailable_seats() +","+ 
+                tour.getCatagory() +","+ 
+                tour.getLanguage() +","+ 
+                tour.getDescription() +")" ;
             
             statement.executeQuery(insert_querry + value_querry);
 
@@ -102,15 +112,16 @@ public class TourDB {
 
 
     // Takes in tour object
-    public void updateTour(){
+    /*
+     * method that allows us to update the information for a tour
+     * takes in one tour object
+     */
+    public void updateTour(Tour tour){
 
-        Tour tour = new Tour(0, 0, null, null, 0, 0, null, 0, null, null, null);
 
         try {
             
-            String dblocation = "src/main/java/Data/LokaverkefniDB.db";
-            Connection conn = DriverManager.getConnection("jdbc:sqlite:" + dblocation);
-            System.out.println("Connection Successful");
+            Connection conn = getConnection();
 
             Statement statement = conn.createStatement();
 
@@ -137,13 +148,17 @@ public class TourDB {
     }
 
 
-    public void deleteTour(){
+    public void deleteTour(Tour tour){
 
         try {
 
-            String dblocation = "src/main/java/Data/LokaverkefniDB.db";
-            Connection conn = DriverManager.getConnection("jdbc:sqlite:" + dblocation);
-            System.out.println("Connection Successful");
+            Connection conn = getConnection();
+
+            Statement statement = conn.createStatement();
+
+            String deleate_querry = "DELETE FROM tour WHERE tourID = " + tour.getTour_ID();
+
+            statement.executeQuery(deleate_querry);
 
             
         } catch (SQLException e) {

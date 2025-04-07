@@ -9,6 +9,16 @@ public class Review {
     private int User_ID;
     private int Tour_ID;
 
+    //TODO make constructer for Review
+
+    public Review(int Review_ID, int rating, String comment, int User_ID, int Tour_ID){
+        this.Review_ID = Review_ID;
+        this.rating = rating;
+        this.comment = comment;
+        this.User_ID = User_ID;
+        this.Tour_ID = Tour_ID;
+    }
+
     //GETTERS___________________________________________________________________________________
 
     public String getComment() {
