@@ -47,4 +47,16 @@ public class ReviewController{
 
     }
 
+    public List<Review> getTourReview(int tourID){
+        List<Review> tourReviews = new ArrayList<>();
+
+        for(Review review: Reviews){
+            if(review.getTour_ID() == tourID){
+                tourReviews.add(review);
+            }
+        }
+
+        return tourReviews;
+    }
+
 }
