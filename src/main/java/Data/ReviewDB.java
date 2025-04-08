@@ -178,5 +178,41 @@ public class ReviewDB {
         }
 
     }
+
+
+    public List<Review> getuserReviews(int userID){
+
+        try {
+
+            List<Review> userReviews = new ArrayList<>();
+
+            Connection conn = getConnection();
+
+            Statement statement = conn.createStatement();
+
+            String get_user_review_query = "SELECT * FROM review WHERE userID = " + userID;
+
+            ResultSet queryResultSet = statement.executeQuery(get_user_review_query);
+
+            while(queryResultSet.next()){
+                Review tempReview = new Review(
+                    queryResultSet.getInt("reviewID"),
+                    queryResultSet.getInt("rating"),
+                    queryResultSet.getString("comment"),
+                    queryResultSet.getInt("userID"),
+                    queryResultSet.getInt("tourID")
+                );
+
+                userReviews.add(tempReview);
+            }
+
+            return userReviews;
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+    }
     
 }

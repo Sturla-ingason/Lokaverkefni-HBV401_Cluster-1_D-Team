@@ -1,9 +1,8 @@
 package Data;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.util.*;
+
+import Objects.Booking;
 import Objects.User;
 
 import java.sql.*;
@@ -174,6 +173,43 @@ public class UserDB {
         } catch (SQLException e) {
             System.out.println("Connection faild");
             e.printStackTrace();
+        }
+
+    }
+
+    public List<Booking> getUserBooking(int userID){
+
+        try {
+
+            List<Booking> user_bookings = new ArrayList<>();
+
+            Connection conn = getConnection();
+
+            Statement statement = conn.createStatement();
+
+            String get_user_booking_query = "SELECT * FROM booking where userID = " + userID;
+
+            ResultSet query_result = statement.executeQuery(get_user_booking_query);
+
+            while(query_result.next()){
+                Booking tempBooking = new Booking(
+                query_result.getInt("bookingID"),
+                query_result.getInt("userID"),
+                query_result.getInt("tourID"),
+                query_result.getString("date"),
+                query_result.getInt("numPeople"),
+                query_result.getInt("totalPrice")
+                );
+
+                user_bookings.add(tempBooking);
+                
+            }
+
+            return user_bookings;
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
         }
 
     }

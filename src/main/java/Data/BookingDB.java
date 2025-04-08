@@ -66,7 +66,7 @@ public class BookingDB {
 
     }
 
-    public void getAllBookings(){
+    public List<Booking> getAllBookings(){
 
         try {
             List<Booking> bookings = new ArrayList<>();
@@ -92,9 +92,12 @@ public class BookingDB {
                 bookings.add(tempBooking);
             }
 
+            return bookings;
+
         } catch (SQLException e) {
             System.out.println("connection failed");
             e.printStackTrace();
+            return null;
         }
 
 
@@ -168,6 +171,7 @@ public class BookingDB {
         }
 
     }
+
 
 
     
