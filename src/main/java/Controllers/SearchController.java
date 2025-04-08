@@ -10,12 +10,38 @@ import javafx.scene.control.ListView;
 
 public class SearchController {
 
+
+    @FXML
+    private TextField searchField;
+
+    @FXML
+    private ListView<String> tourListView;
+
+
+
+    
+
+
+    
+    // Fyllir listview með tours
+    public void updateListView() {
+        if (tourListView != null) {
+            List<String> tourNames = new ArrayList<>();
+            for (Tour tour : tours) {
+                tourNames.add(tour.getTourName());
+            }
+            tourListView.getItems().setAll(tourNames);
+        } else {
+            System.out.println("tourListView is null");
+        }
+    }
+    
     
     private TourDB tourDB = new TourDB();
     private List<Tour> tours = new ArrayList<>();
 
     // uppfærum tours listan okkar ef við uppfærum einhverja tours
-    public void updateTourList(){
+    public void updateTours(){
         tours = tourDB.getAllTours();
     }
 
@@ -41,6 +67,7 @@ public class SearchController {
         for (Tour tour : matchingTours) {
             tourNames.add(tour.getTourName());
         }
+        tourListView.getItems().setAll(tourNames);
 
         return matchingTours;
     }
