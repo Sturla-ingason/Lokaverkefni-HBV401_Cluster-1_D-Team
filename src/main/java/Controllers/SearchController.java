@@ -10,7 +10,7 @@ import javafx.scene.control.ListView;
 
 public class SearchController {
 
-
+    @FXML
     private ListView<String> tourListView;
 
     public void setTourListView(ListView<String> tourListView) {

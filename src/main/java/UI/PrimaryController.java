@@ -20,6 +20,7 @@ import Objects.Tour;
 
 public class PrimaryController {
 
+    @FXML
     SearchController searchController = new SearchController();
 
     @FXML
