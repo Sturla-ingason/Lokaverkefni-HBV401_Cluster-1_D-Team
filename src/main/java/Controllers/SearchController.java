@@ -11,20 +11,15 @@ import javafx.scene.control.ListView;
 public class SearchController {
 
 
-    @FXML
-    private TextField searchField;
-
-    @FXML
     private ListView<String> tourListView;
 
-
-
-    
-
+    public void setTourListView(ListView<String> tourListView) {
+        this.tourListView = tourListView;
+    }
 
     
     // Fyllir listview með tours
-    public void updateListView() {
+    public void updateListView(List<Tour> tours) {
         if (tourListView != null) {
             List<String> tourNames = new ArrayList<>();
             for (Tour tour : tours) {

@@ -20,8 +20,8 @@ import Objects.Tour;
 
 public class PrimaryController {
 
-    @FXML
     SearchController searchController = new SearchController();
+
     @FXML
     BookingController bookingController = new BookingController();
     @FXML
@@ -41,13 +41,16 @@ public class PrimaryController {
     
     private List<Tour> tours = new ArrayList<>();
     BookingDB test = new BookingDB();
+
+    private TourDB tourDB = new TourDB();
     
     @FXML
     public void initialize() {
         System.out.println("initialized!");
-        
-        searchController.setTours(tours); 
-        searchController.updateListView();
+        tours = tourDB.getAllTours();
+
+        searchController.setTourListView(tourListView); 
+        searchController.updateListView(tours);
     }
 
      
