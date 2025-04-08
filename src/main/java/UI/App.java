@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import Controllers.TourController;
+import Controllers.SearchController;
 
 public class App extends Application {
 
