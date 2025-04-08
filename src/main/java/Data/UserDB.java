@@ -177,5 +177,15 @@ public class UserDB {
         }
 
     }
+
+    public void newUser(int userID, String name, String email, String password, int adminID, String bookings) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'newUser'");
+    }
+
+    public void newUser(int userID, String name, String email, String password, int adminID, String bookings) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'newUser'");
+    }
     
 }

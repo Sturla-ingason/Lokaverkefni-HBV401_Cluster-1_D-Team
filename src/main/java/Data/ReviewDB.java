@@ -148,7 +148,7 @@ public class ReviewDB {
             review.getRating() +","+
             review.getComment() +","+
             review.getUser_ID() +","+
-            review.getTour_ID();
+            review.getTour_ID() + "WHERE reviewID = " + review.getReview_ID();
 
             statement.executeQuery(update_review_query);
             

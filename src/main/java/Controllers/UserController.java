@@ -19,7 +19,6 @@ public class UserController{
     public void newUser(int userID, String name, String email, String Password, int adminID){
 
         User user = new User(userID, name, email, Password, adminID);
-
         user_data.newUser(user);
     }
 

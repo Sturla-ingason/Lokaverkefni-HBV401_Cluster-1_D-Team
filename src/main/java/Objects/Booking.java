@@ -8,9 +8,20 @@ public class Booking {
     private int Booking_ID;
     private int User_ID;
     private int Tour_ID;
-    private Date localDate = new Date();
+    private String localDate;
     private int number_people;
-    private double toatl_price;
+    private int toatl_price;
+
+    //TODO make constructor for Booking
+
+    public Booking(int Booking_ID, int User_ID, int Tour_ID, String localDate, int number_people, int toatl_price){
+        this.Booking_ID = Booking_ID;
+        this.User_ID = User_ID;
+        this.Tour_ID = Tour_ID;
+        this.localDate = localDate;
+        this.number_people = number_people;
+        this.toatl_price = toatl_price;
+    }
 
     //GETTERS---------------------------------------------------------------------------
 
@@ -18,7 +29,7 @@ public class Booking {
         return Booking_ID;
     }
 
-    public Date getLocalDate() {
+    public String getLocalDate() {
         return localDate;
     }
 
@@ -26,7 +37,7 @@ public class Booking {
         return number_people;
     }
 
-    public double getToatl_price() {
+    public int getToatl_price() {
         return toatl_price;
     }
 
@@ -44,7 +55,7 @@ public class Booking {
         Booking_ID = booking_ID;
     }
 
-    public void setLocalDate(Date localDate) {
+    public void setLocalDate(String localDate) {
         this.localDate = localDate;
     }
 
@@ -52,7 +63,7 @@ public class Booking {
         this.number_people = number_people;
     }
 
-    public void setToatl_price(double toatl_price) {
+    public void setToatl_price(int toatl_price) {
         this.toatl_price = toatl_price;
     }
 
