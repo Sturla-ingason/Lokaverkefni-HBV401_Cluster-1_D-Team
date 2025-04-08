@@ -3,9 +3,44 @@ package Controllers;
 import Data.TourDB;
 import java.util.*;
 import Objects.Tour;
+import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
+import javafx.scene.control.ListView;
+
 
 public class SearchController {
 
+
+    @FXML
+    private TextField searchField;
+
+    @FXML
+    private ListView<String> tourListView;
+
+
+    @FXML
+    public void initialize() {
+        System.out.println("SearchController initialized!");
+        tours = tourDB.getAllTours(); // Load all tours from the database
+        updateListView(); // Display tours in the ListView
+    }
+
+    
+    @FXML
+    private void handleSearchInput() {
+        String query = searchField.getText();
+        stringSearch(query);
+    }
+
+    // Fyllir listview með tours
+    private void updateListView() {
+        List<String> tourNames = new ArrayList<>();
+        for (Tour tour : tours) {
+            tourNames.add(tour.getTourName());
+        }
+        tourListView.getItems().setAll(tourNames);
+    }
+    
     private TourDB tourDB = new TourDB();
     private List<Tour> tours = new ArrayList<>();
 
@@ -25,12 +60,18 @@ public class SearchController {
      */
     public List<Tour> stringSearch(String query){
         List<Tour> matchingTours = new ArrayList<>();
+        List<String> tourNames = new ArrayList<>();
 
         for(Tour tour : tours){
             if(tour.getTourName().toLowerCase().contains(query.toLowerCase()) && query.length() != 0){
                 matchingTours.add(tour);
             }
         }
+        
+        for (Tour tour : matchingTours) {
+            tourNames.add(tour.getTourName());
+        }
+        tourListView.getItems().setAll(tourNames);
 
         return matchingTours;
     }
