@@ -2,12 +2,17 @@ package UI;
 
 import java.io.IOException;
 
+import javax.swing.UIDefaults.ActiveValue;
+
 import Objects.Tour;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.KeyEvent;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,14 +24,20 @@ public class TourDisplayController {
     private Stage stage;
     private Scene scene;
 
+    private Tour currentTour;
+
     @FXML
     private VBox detailsContainer;
+
+    @FXML
+    private Button bookButton;
 
     public void inputDetails(Tour tour) {
         if (tour == null) {
             return;
         }
 
+        this.currentTour = tour;
         detailsContainer.getChildren().clear();
 
         Label tourName = new Label("Title: " + tour.getTourName());
@@ -54,9 +65,28 @@ public class TourDisplayController {
         stage.show();
     }
 
-    @FXML
-    private void handleSearchInput(KeyEvent event) {
-        // Your search logic here
-        System.out.println("Key released in search field");
+    public void bookTour(ActionEvent event){
+        if (currentTour == null) return;
+
+        if (currentTour.getAvailable_seats() > 0) {
+
+            //Lower available seat count and display correct tour info
+            currentTour.setAvailable_seats(currentTour.getAvailable_seats() - 1); 
+            inputDetails(currentTour);
+
+            //Confirm booking
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Booking Confirmed");
+            alert.setHeaderText(null);
+            alert.setContentText("You have successfully booked the tour: " + currentTour.getTourName());
+            alert.showAndWait();
+        } else {
+            //Alert booking fail
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Booking Failed");
+            alert.setHeaderText(null);
+            alert.setContentText("Sorry, no available seats left.");
+            alert.showAndWait();
+        }
     }
 }
