@@ -2,33 +2,75 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.PrimaryController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="675.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.PrimaryController">
    <children>
-      <VBox prefHeight="400.0" prefWidth="600.0">
+      <VBox prefHeight="400.0" prefWidth="675.0">
          <children>
             <HBox prefHeight="58.0" prefWidth="600.0">
                <children>
-                  <HBox prefHeight="36.0" prefWidth="663.0">
+                  <HBox alignment="BOTTOM_LEFT" prefHeight="46.0" prefWidth="715.0">
                      <children>
-                        <TextField fx:id="searchField" onKeyReleased="#handleSearchInput" prefHeight="26.0" prefWidth="402.0" promptText="Search">
+                        <TextField fx:id="searchField" prefHeight="26.0" prefWidth="168.0" promptText="Search">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
                         </TextField>
-                        <ComboBox prefWidth="150.0" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="36.0" text="Price">
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="minPriceField" prefHeight="26.0" prefWidth="50.0" promptText="min">
+                           <HBox.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <Label text="to" />
+                        <TextField fx:id="maxPriceField" layoutX="229.0" layoutY="15.0" prefHeight="26.0" prefWidth="50.0" promptText="max">
+                           <HBox.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="36.0" prefWidth="91.0">
+                           <children>
+                              <DatePicker prefHeight="26.0" prefWidth="102.0">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <HBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </HBox.margin>
+                              </DatePicker>
+                              <MenuButton fx:id="regionMenuButton" alignment="BOTTOM_CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="102.0" text="Location">
+                                <items>
+                                  <MenuItem mnemonicParsing="false" text="Iceland" onAction="#handleRegionSelection"/>
+                                  <MenuItem mnemonicParsing="false" text="France" onAction="#handleRegionSelection"/>
+                                    <MenuItem mnemonicParsing="false" text="Portugal" onAction="#handleRegionSelection"/>
+                                    <MenuItem mnemonicParsing="false" text="China" onAction="#handleRegionSelection"/>
+                                </items>
+                              </MenuButton>
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </HBox>
+                        <Button onAction="#handleSearchButton" mnemonicParsing="false" text="Search" />
                      </children>
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
                   </HBox>
-                  <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="300.0">
+                  <HBox alignment="CENTER_RIGHT" prefHeight="46.0" prefWidth="259.0">
                      <children>
                         <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="63.0" text="User">
                            <HBox.margin>
@@ -37,14 +79,14 @@
                         </Button>
                      </children>
                      <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        <Insets right="5.0" />
                      </padding>
                   </HBox>
                </children>
             </HBox>
             <HBox prefHeight="329.0" prefWidth="600.0">
                <children>
-                  <ListView fx:id="tourListView" prefHeight="247.0" prefWidth="607.0" />
+                  <ListView fx:id="tourListView" prefHeight="303.0" prefWidth="657.0" />
                </children>
                <VBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

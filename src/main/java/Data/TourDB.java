@@ -48,7 +48,6 @@ public class TourDB {
             String querry = "SELECT * FROM tour";
 
             ResultSet result = statement.executeQuery(querry);
-
             while(result.next()){
                 Tour tourTemp = new Tour(result.getInt("tourID"), 
                 result.getInt("admin_ID"),
