@@ -3,9 +3,16 @@ package Controllers;
 import java.util.*;
 import Data.UserDB;
 import Objects.User;
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import Objects.Booking;
+import Objects.Tour;
 
 public class UserController{
+
+    @FXML
+    private ListView<String> bookingList;
 
     private List<User> users = new ArrayList<>();
     private UserDB user_data = new UserDB();
@@ -42,6 +49,14 @@ public class UserController{
     public List<Booking> veiwBookings(int userID){
         List<Booking> bookings = user_data.getUserBooking(userID);
         return bookings;
+    }
+
+    public void inputBooking(Tour tour){
+        if (tour == null) {
+            return;
+        }
+        bookingList.getItems().add(tour.getTourName());
+
     }
     
 
