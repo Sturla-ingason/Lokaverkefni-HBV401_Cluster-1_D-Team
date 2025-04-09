@@ -1,7 +1,7 @@
 package UI;
 
 import java.io.IOException;
-
+import Controllers.UserController;
 import javax.swing.UIDefaults.ActiveValue;
 
 import Controllers.UserController;
@@ -102,6 +102,20 @@ public class TourDisplayController {
     private void openUserPopup() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/user.fxml"));
         Parent root = loader.load();
+
+        Stage userStage = new Stage();
+        userStage.setTitle("User Window");
+        userStage.setScene(new Scene(root));
+        userStage.show();
+    }
+
+    @FXML
+    private void openUserPopup() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/user.fxml"));
+        Parent root = loader.load();
+
+        UserController userController = loader.getController();
+        userController.inputBooking(currentTour);
 
         Stage userStage = new Stage();
         userStage.setTitle("User Window");
