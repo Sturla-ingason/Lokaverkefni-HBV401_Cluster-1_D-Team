@@ -30,7 +30,7 @@
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" prefHeight="35.0" prefWidth="197.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="63.0" text="User">
+                        <Button  mnemonicParsing="false" prefHeight="26.0" prefWidth="63.0" text="User" onAction="#openUserPopup">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>

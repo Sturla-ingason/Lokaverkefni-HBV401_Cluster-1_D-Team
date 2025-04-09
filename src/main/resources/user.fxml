@@ -35,7 +35,7 @@
             </HBox>
             <VBox prefHeight="457.0" prefWidth="600.0">
                <children>
-                  <ListView prefHeight="400.0" prefWidth="600.0" />
+                  <ListView fx:id="bookedTours" prefHeight="400.0" prefWidth="600.0" />
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="153.0" prefWidth="600.0">
