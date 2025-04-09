@@ -17,12 +17,10 @@ import javafx.scene.control.ListView;
 import Data.BookingDB;
 import Data.TourDB;
 import Objects.Tour;
-
 public class PrimaryController {
 
     @FXML
     SearchController searchController = new SearchController();
-
     @FXML
     BookingController bookingController = new BookingController();
     @FXML
@@ -49,7 +47,6 @@ public class PrimaryController {
     public void initialize() {
         System.out.println("initialized!");
         tours = tourDB.getAllTours();
-
         searchController.setTourListView(tourListView); 
         searchController.updateListView(tours);
     }
@@ -58,6 +55,8 @@ public class PrimaryController {
     @FXML
     private void handleSearchInput() {
         String query = searchField.getText();
+        tours = tourDB.getAllTours();
+        searchController.setTours(tours);
         searchController.stringSearch(query);
     }
     
