@@ -4,6 +4,7 @@ import java.io.IOException;
 import Controllers.UserController;
 import javax.swing.UIDefaults.ActiveValue;
 
+import Controllers.UserController;
 import Objects.Tour;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -65,7 +66,7 @@ public class TourDisplayController {
         stage.show();
     }
 
-    public void bookTour(ActionEvent event){
+    public void bookTour(ActionEvent event) throws IOException{
         if (currentTour == null) return;
 
         if (currentTour.getAvailable_seats() > 0) {
@@ -88,6 +89,24 @@ public class TourDisplayController {
             alert.setContentText("Sorry, no available seats left.");
             alert.showAndWait();
         }
+
+        //Input the tour into booking scene
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/tour_list.fxml"));
+        Parent root = loader.load();
+
+        UserController userController = loader.getController();
+        userController.inputBooking(currentTour);
+    }
+
+    @FXML
+    private void openUserPopup() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/user.fxml"));
+        Parent root = loader.load();
+
+        Stage userStage = new Stage();
+        userStage.setTitle("User Window");
+        userStage.setScene(new Scene(root));
+        userStage.show();
     }
 
     @FXML

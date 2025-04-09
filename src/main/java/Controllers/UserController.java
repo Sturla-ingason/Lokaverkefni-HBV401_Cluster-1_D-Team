@@ -4,7 +4,9 @@ import java.util.*;
 import Data.UserDB;
 import Objects.User;
 import javafx.fxml.FXML;
+
 import javafx.scene.control.Label;
+
 import javafx.scene.control.ListView;
 import Objects.Booking;
 import Objects.Tour;
@@ -59,5 +61,11 @@ public class UserController{
 
     }
     
+    public void inputBooking(Tour tour){
+        if (tour == null) {
+            return;
+        }
 
+        bookingList.getItems().addAll(tour.getTourName());
+    }
 }
