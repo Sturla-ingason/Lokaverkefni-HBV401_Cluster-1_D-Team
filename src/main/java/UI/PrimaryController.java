@@ -126,13 +126,13 @@ private String selectedRegion = ""; // Store selected region
 
     @FXML
     private void openUserPopup() throws IOException {
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("/user.fxml"));
-    Parent root = loader.load();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/user.fxml"));
+        Parent root = loader.load();
 
-    Stage userStage = new Stage();
-    userStage.setTitle("User Window");
-    userStage.setScene(new Scene(root));
-    userStage.show();
-}
+        Stage userStage = new Stage();
+        userStage.setTitle("User Window");
+        userStage.setScene(new Scene(root));
+        userStage.show();
+    }
 
 }
