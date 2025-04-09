@@ -8,7 +8,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.*;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyEvent;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.VBox;
 
@@ -17,11 +19,14 @@ public class TourDisplayController {
     private Stage stage;
     private Scene scene;
 
-    public void inputDetails(Tour tour, VBox detailsContainer) {
-        if (tour == null || detailsContainer == null) {
+    @FXML
+    private VBox detailsContainer;
+
+    public void inputDetails(Tour tour) {
+        if (tour == null) {
             return;
         }
-        
+
         detailsContainer.getChildren().clear();
 
         Label tourName = new Label("Title: " + tour.getTourName());
@@ -47,5 +52,11 @@ public class TourDisplayController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    @FXML
+    private void handleSearchInput(KeyEvent event) {
+        // Your search logic here
+        System.out.println("Key released in search field");
     }
 }
